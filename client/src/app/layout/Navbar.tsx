@@ -1,10 +1,8 @@
-import { AppBar, Box, Button, Container, MenuItem, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Container, MenuItem, Toolbar, Typography } from '@mui/material'
+import { NavLink } from 'react-router'
+import MenuItemLink from '../shared/components/MenuItemLink'
 
-type Props = {
-	openForm: () => void;
-}
-
-export const Navbar = ({ openForm }: Props) => {
+export const Navbar = () => {
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="static">
@@ -13,30 +11,25 @@ export const Navbar = ({ openForm }: Props) => {
 						display: 'flex',
 						justifyContent: 'space-between'
 					}}>
-						<Typography variant="h6">
-							Kundeplan
-						</Typography>
+						<MenuItem component={NavLink} to='/'>
+							<Typography variant="h6">
+								Kundeplan
+							</Typography>
+						</MenuItem>
 						<Box sx={{
 							display: 'flex',
 							gap: 3
 						}}>
-							<MenuItem>
-								<Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
-									Activities
-								</Typography>
-							</MenuItem>
-							<MenuItem>
-								<Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
-									About
-								</Typography>
-							</MenuItem>
-							<MenuItem>
-								<Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
-									Contact
-								</Typography>
-							</MenuItem>
+							<MenuItemLink to='/activities'>
+								Activities
+							</MenuItemLink>
+							<MenuItemLink to='/createActivity'>
+								Create activity
+							</MenuItemLink>
 						</Box>
-						<Button color="success" variant="contained" onClick={openForm}>Create activity</Button>
+						<MenuItem>
+							User menu
+						</MenuItem>
 					</Toolbar>
 				</Container>
 			</AppBar>
