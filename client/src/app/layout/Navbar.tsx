@@ -30,6 +30,9 @@ export const Navbar = () => {
 							<MenuItemLink to='/counter'>
 								Counter
 							</MenuItemLink>
+							<MenuItemLink to='/errors'>
+								Errors
+							</MenuItemLink>
 						</Box>
 						<MenuItem>
 							User menu
